@@ -13,16 +13,13 @@ class Faahzsh < Formula
 
   def caveats
     <<~EOS
-      To activate faahzsh, add the following to your shell config:
+      To activate faahzsh, run ONE of the following (once) for your shell:
 
-      For zsh (~/.zshrc):
-        source #{opt_prefix}/faahzsh.plugin.zsh
+      zsh:
+        echo 'source #{opt_prefix}/faahzsh.plugin.zsh' >> ~/.zshrc && source ~/.zshrc
 
-      For bash (~/.bashrc):
-        source #{opt_prefix}/faahzsh.plugin.bash
-
-      Then reload your shell:
-        source ~/.zshrc   # or source ~/.bashrc
+      bash:
+        echo 'source #{opt_prefix}/faahzsh.plugin.bash' >> ~/.bashrc && source ~/.bashrc
     EOS
   end
 

@@ -5,23 +5,23 @@
 class NanoFfmpeg < Formula
   desc "A beautiful terminal UI for ffmpeg"
   homepage "https://github.com/dgr8akki/nano-ffmpeg"
-  version "0.4.0"
+  version "0.5.0"
   license "MIT"
 
   depends_on "ffmpeg-full"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dgr8akki/nano-ffmpeg/releases/download/v0.4.0/nano-ffmpeg_0.4.0_darwin_amd64.tar.gz"
-      sha256 "16ab17e333d01b796fe84b8476c0c280c24221623ff3270d041e15acbe3e146a"
+      url "https://github.com/dgr8akki/nano-ffmpeg/releases/download/v0.5.0/nano-ffmpeg_0.5.0_darwin_amd64.tar.gz"
+      sha256 "9f38faf5ba7daf34d90d1c237f6e559f4b29c1c1399d06303195ba8c39714187"
 
       define_method(:install) do
         bin.install "nano-ffmpeg"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dgr8akki/nano-ffmpeg/releases/download/v0.4.0/nano-ffmpeg_0.4.0_darwin_arm64.tar.gz"
-      sha256 "ff977dbbc65e09a088c039968a516aa8d7a3f5ea212fd3dde61503e1cb8d8f3a"
+      url "https://github.com/dgr8akki/nano-ffmpeg/releases/download/v0.5.0/nano-ffmpeg_0.5.0_darwin_arm64.tar.gz"
+      sha256 "df8afa3e64955d58f53f9ebccb8b9275b90dbb7874ce41b177ea3080686dc4ae"
 
       define_method(:install) do
         bin.install "nano-ffmpeg"
@@ -31,15 +31,15 @@ class NanoFfmpeg < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dgr8akki/nano-ffmpeg/releases/download/v0.4.0/nano-ffmpeg_0.4.0_linux_amd64.tar.gz"
-      sha256 "1942c32c039841b276c5b3bcfb271c3e11741c1d0c799629cf5a0e3518ad1a86"
+      url "https://github.com/dgr8akki/nano-ffmpeg/releases/download/v0.5.0/nano-ffmpeg_0.5.0_linux_amd64.tar.gz"
+      sha256 "7edbd83f2034e92545fed570c2245f12c164a319048b770ee0e9866fcab57dd6"
       define_method(:install) do
         bin.install "nano-ffmpeg"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dgr8akki/nano-ffmpeg/releases/download/v0.4.0/nano-ffmpeg_0.4.0_linux_arm64.tar.gz"
-      sha256 "e3362f77d4509e6e109ff7393f4216db7758fdfbb3902295b8ce0e72c6bfd60b"
+      url "https://github.com/dgr8akki/nano-ffmpeg/releases/download/v0.5.0/nano-ffmpeg_0.5.0_linux_arm64.tar.gz"
+      sha256 "6b36fc6d651bbe29f029b267437b8b9c22962077193388ad7992746ea1a5d359"
       define_method(:install) do
         bin.install "nano-ffmpeg"
       end

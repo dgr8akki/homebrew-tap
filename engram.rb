@@ -1,8 +1,8 @@
 class Engram < Formula
   desc "Local semantic knowledge base with MCP integration for AI coding tools"
   homepage "https://github.com/dgr8akki/engram"
-  url "https://github.com/dgr8akki/engram/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "23b30f0c512e6d1b76c6e2307bd5ba32d011565e96613c2aec32d7956cf9a505"
+  url "https://github.com/dgr8akki/engram/archive/refs/tags/v0.1.3.tar.gz"
+  sha256 "7102f795fedc00a7ab5cc0b1e34f4125024d95ff7cbdb2cf70b5c0d8580818ee"
   license "MIT"
   head "https://github.com/dgr8akki/engram.git", branch: "main"
 
@@ -44,6 +44,12 @@ class Engram < Formula
 
       To start the HTTP REST server (port 7823):
         engram serve
+
+      To start the HTTP server automatically at every login (macOS LaunchAgent):
+        engram autostart install
+
+      To disable autostart:
+        engram autostart remove
 
       Restart your IDE/AI tool to activate the MCP server, skill, and hooks.
     EOS

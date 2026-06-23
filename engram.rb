@@ -1,8 +1,8 @@
 class Engram < Formula
   desc "Local semantic knowledge base with MCP integration for AI coding tools"
   homepage "https://github.com/dgr8akki/engram"
-  url "https://github.com/dgr8akki/engram/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "3709bd8118a7ece1bd1f9f719b3a8a71550682b7830769a2dc5f91e070c4ca27"
+  url "https://github.com/dgr8akki/engram/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "9ea6da717443325d3b10572f86147ab52acd3a359ef4962d0afdd3e51208301b"
   license "MIT"
   head "https://github.com/dgr8akki/engram.git", branch: "main"
 
@@ -48,6 +48,8 @@ class Engram < Formula
       Engram is installed and configured for any AI coding tools detected on your
       system (Claude Code, Cursor, Antigravity, Windsurf).
 
+      Your knowledge base lives at ~/.engram/engram.db and persists across upgrades.
+
       Two background services have been registered as LaunchAgents (macOS):
         • HTTP server   — starts at login, keeps embedding model warm for retrieval
         • Rules updater — refreshes ~/.cursorrules, ~/.windsurfrules, and
@@ -55,10 +57,13 @@ class Engram < Formula
 
       Restart your IDE/AI tool to activate MCP, skills, and hooks.
 
+      After `brew upgrade engram`, reload the background services once:
+        engram autostart install && engram rules install
+
       If setup didn't complete or you install a new AI tool later:
         engram install
 
-      To manage background services manually:
+      To manage background services:
         engram autostart status / remove
         engram rules update [--dir PATH]
     EOS

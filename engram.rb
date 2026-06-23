@@ -1,8 +1,8 @@
 class Engram < Formula
   desc "Local semantic knowledge base with MCP integration for AI coding tools"
   homepage "https://github.com/dgr8akki/engram"
-  url "https://github.com/dgr8akki/engram/archive/refs/tags/v0.1.3.tar.gz"
-  sha256 "7102f795fedc00a7ab5cc0b1e34f4125024d95ff7cbdb2cf70b5c0d8580818ee"
+  url "https://github.com/dgr8akki/engram/archive/refs/tags/v0.1.4.tar.gz"
+  sha256 "3709bd8118a7ece1bd1f9f719b3a8a71550682b7830769a2dc5f91e070c4ca27"
   license "MIT"
   head "https://github.com/dgr8akki/engram.git", branch: "main"
 

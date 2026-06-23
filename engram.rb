@@ -32,26 +32,35 @@ class Engram < Formula
     # Non-fatal — user may not have any AI coding tools installed yet.
     quiet_system bin/"engram", "init"
     quiet_system bin/"engram", "install"
+
+    # macOS: register LaunchAgents so the HTTP server and rules updater start
+    # automatically. The HTTP server must be running for per-prompt retrieval to
+    # work; the rules updater keeps .cursorrules / .windsurfrules /
+    # copilot-instructions.md current for tools without hook injection.
+    if OS.mac?
+      quiet_system bin/"engram", "autostart", "install"
+      quiet_system bin/"engram", "rules", "install"
+    end
   end
 
   def caveats
     <<~EOS
-      Engram is installed and has been configured for any AI coding tools detected
-      on your system (Claude Code, Cursor, Antigravity, Windsurf).
+      Engram is installed and configured for any AI coding tools detected on your
+      system (Claude Code, Cursor, Antigravity, Windsurf).
 
-      If setup didn't complete or you install a new tool later:
+      Two background services have been registered as LaunchAgents (macOS):
+        • HTTP server   — starts at login, keeps embedding model warm for retrieval
+        • Rules updater — refreshes ~/.cursorrules, ~/.windsurfrules, and
+                          ~/.github/copilot-instructions.md every 30 minutes
+
+      Restart your IDE/AI tool to activate MCP, skills, and hooks.
+
+      If setup didn't complete or you install a new AI tool later:
         engram install
 
-      To start the HTTP REST server (port 7823):
-        engram serve
-
-      To start the HTTP server automatically at every login (macOS LaunchAgent):
-        engram autostart install
-
-      To disable autostart:
-        engram autostart remove
-
-      Restart your IDE/AI tool to activate the MCP server, skill, and hooks.
+      To manage background services manually:
+        engram autostart status / remove
+        engram rules update [--dir PATH]
     EOS
   end
 
